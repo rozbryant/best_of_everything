@@ -1,4 +1,6 @@
-# Resource Practice
+# BUS36110 Fall 2014 Midterm, Part 2
+
+## Introduction
 
 This application has 3 database-backed web CRUD resources:
 
