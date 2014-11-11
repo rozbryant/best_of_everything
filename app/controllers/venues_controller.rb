@@ -3,7 +3,7 @@ require 'json'
 
 class VenuesController < ApplicationController
   def index
-    @venues = Venue.list
+    @venues = Venue.all
   end
 
   def show
@@ -18,6 +18,7 @@ class VenuesController < ApplicationController
     @venue.name = params[:name]
     @venue.address = params[:address]
     @venue.neighborhood = params[:neighborhood]
+    @venue.save
 
     render('show')
   end
@@ -27,7 +28,7 @@ class VenuesController < ApplicationController
   end
 
   def update_row
-    @venue = Venue.find(params[:id])
+    @venue = Venue.find(params[ :id])
 
     @venue.name = params[:name]
     @venue.address = params[:address]

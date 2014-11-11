@@ -8,12 +8,13 @@ class DishesController < ApplicationController
   end
 
   def new_form
+
   end
 
   def create_row
     @dish = Dish.new
-    @dish.name = params[:name]
-    @dish.cuisine = params[:cuisine]
+    @dish.name = params[:the_name]
+    @dish.cuisine = params[:the_cuisine]
 
     @dish.save
 
@@ -27,8 +28,8 @@ class DishesController < ApplicationController
   def update_row
     @dish = Dish.find(params[:id])
 
-    @dish.the_name = params[:name]
-    @dish.the_cuisine = params[:cuisine]
+    @dish.name = params[:name]
+    @dish.cuisine = params[:cuisine]
 
     @dish.save
 
@@ -36,6 +37,9 @@ class DishesController < ApplicationController
   end
 
   def destroy
-    @dish = Dish.find(params[:id])
+    @the_id = params[:id]
+    d = Dish.find_by({:id => @the_id})
+    d.destroy
+
   end
 end
